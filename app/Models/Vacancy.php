@@ -20,4 +20,11 @@ class Vacancy extends Model
     public function tecnologies(){
         return $this->hasMany(Tecnology::class);
     }
+
+    public function similar(){
+        return $this->where('category_id', $this->category_id)
+            ->with('user')
+            ->take(2)
+            ->get();
+    }
 }
