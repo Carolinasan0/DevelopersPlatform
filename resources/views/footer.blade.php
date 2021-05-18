@@ -1,4 +1,4 @@
-<div class="grid grid-cols-3 mt-8 h-50 text-left">
+<div class="grid grid-cols-3 h-50 text-left">
     <div class="bg-one px-10 py-6">
         <a href="">
         <img src="{{ asset('images/aspirejobsrosa.png') }}" class="h-4 mb-4 mt-4">

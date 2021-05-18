@@ -1,5 +1,8 @@
+@include('header')
+
 <x-guest-layout>
     <x-jet-authentication-card>
+
         <x-slot name="logo">
             <x-jet-authentication-card-logo />
         </x-slot>
@@ -57,9 +60,11 @@
                 </a>
 
                 <x-jet-button class="ml-4">
-                    {{ __('Registarme') }}
+                    {{ __('Registrarme') }}
                 </x-jet-button>
             </div>
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>
+
+@include('footer')
