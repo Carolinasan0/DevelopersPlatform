@@ -4,14 +4,14 @@
 
   <div class=" flex flex-wrap flex-col md:flex-row items-center bg-one">
         <!--Left Col-->
-    <div class="flex flex-col w-full md:w-2/5 justify-center items-center text-center">
+    <div class="flex-col w-full md:w-2/5 items-center text-center">
           <h1 class="mx-30 text-center text-5xl font-serif leading-tight text-rosa">
            Juntos construimos grandes cosas
           </h1>
-          <button class="mx-auto lg:mx-0 bg-two text-azul font-sans rounded-lg my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+          <button class=" mx-auto lg:mx-0 bg-two text-azul font-sans rounded-lg my-6 py-3 px-5 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
             Publicar una oferta
           </button>
-          <button class="mx-auto lg:mx-0 bg-two text-azul font-sans rounded-lg my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+          <button class="mx-auto lg:mx-0 bg-two text-azul font-sans rounded-lg my-6 py-3 px-5 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
             Buscar una oferta
           </button>
     </div>
