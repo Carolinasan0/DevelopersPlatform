@@ -9,11 +9,13 @@ class Education extends Model
 {
     use HasFactory;
 
-    public function vacancies(){
+    public function vacancies()
+    {
         return $this->hasMany(Vacancy::class);
     }
 
-    public function user(){
-        return $this->belongsTo(User::class);
+    public function user()
+    {
+        return $this->belongsToMany(User::class);
     }
 }

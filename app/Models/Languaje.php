@@ -9,11 +9,13 @@ class Languaje extends Model
 {
     use HasFactory;
 
-    public function users(){
-        return $this->hasMany(User::class);
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
     }
 
-    public function languaje_level(){
+    public function languaje_level()
+    {
         return $this->belongsTo(Languaje_Level::class);
     }
 }

@@ -25,11 +25,11 @@ class CreateVacanciesTable extends Migration
             $table->string('location');
             $table->string('currency');
             $table->longtext('description');
-            $table->enum('status', [1, 2])->default(1);
+            $table->enum('status', ['Borrador', 'Publicar'])->default('Borrador');
             $table->string('end');
 
             $table->timestamps();
-            
+
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });

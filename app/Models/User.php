@@ -63,38 +63,50 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function vacancies(){
+    public function vacancies()
+    {
         return $this->hasMany(Vacancy::class);
     }
 
-    public function skills(){
-        return $this->hasMany(Skill::class);
+    public function skills()
+    {
+        return $this->belongsToMany(Skill::class);
     }
 
-    public function projects(){
+    public function tecnologies()
+    {
+        return $this->belongsToMany(Tecnology::class);
+    }
+
+    public function projects()
+    {
         return $this->hasMany(Project::class);
     }
 
-    public function languajes(){
-        return $this->hasMany(Languaje::class);
+    public function languajes()
+    {
+        return $this->belongsToMany(Languaje::class);
     }
 
-    public function education(){
-        return $this->hasMany(Education::class);
+    public function education()
+    {
+        return $this->belongsToMany(Education::class);
     }
 
-    public function country(){
+    public function country()
+    {
         return $this->belongsTo(Country::class);
     }
 
-    public function certification(){
+    public function certification()
+    {
         return $this->hasMany(Certifications::class);
     }
 
-    public function getAvatarAttribute() {
+    public function getAvatarAttribute()
+    {
         //gravatar
         $email = md5($this->email);
-        return "https://es.gravatar.com/avatar/$email"; 
+        return "https://es.gravatar.com/avatar/$email";
     }
-
 }

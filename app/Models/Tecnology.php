@@ -9,7 +9,13 @@ class Tecnology extends Model
 {
     use HasFactory;
 
-    public function vacancies(){
-        return $this->hasMany(Vacancy::class);
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+    public function vacancies()
+    {
+        return $this->belongsToMany(Vacancy::class);
     }
 }

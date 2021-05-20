@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -11,6 +11,13 @@ class PageController extends Controller
     {
         return view('index');
     }
+
+    // public function render(Category $category)
+    // {
+    //     $categories = Category::all();
+    //     // return view('footer', compact('categories'));
+    //     return view('category.category');
+    // }
 
     // public function category(Category $category) {
     //     // return view('vacancy', compact('vacancy'));

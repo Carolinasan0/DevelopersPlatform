@@ -12,6 +12,12 @@ class VacancyController extends Controller
         return view('vacancy', compact('vacancy'));
     }
 
+    // public function vacancy()
+    // {
+    //     $vacancy = Vacancy::where('status', 'Publicar')->get();
+    //     return view('vacancy', compact('vacancy'));
+    // }
+
     // public function create()
     // {
     //     return "Aquí se pude crear una vacante";
