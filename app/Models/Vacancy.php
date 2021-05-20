@@ -9,22 +9,25 @@ class Vacancy extends Model
 {
     use HasFactory;
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function category(){
+    public function category()
+    {
         return $this->belongsTo(Category::class);
     }
 
-    public function tecnologies(){
+    public function tecnologies()
+    {
         return $this->hasMany(Tecnology::class);
     }
 
-    public function similar(){
-        return $this->where('category_id', $this->category_id)
-            ->with('user')
-            ->take(2)
-            ->get();
-    }
+    // public function similar(){
+    //     return $this->where('category_id', $this->category_id)
+    //         ->with('user')
+    //         ->take(2)
+    //         ->get();
+    // }
 }

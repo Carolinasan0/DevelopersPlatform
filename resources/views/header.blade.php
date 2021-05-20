@@ -1,23 +1,25 @@
 <!-- <div class="flex items-center justify-between h-16"></div> -->
 <nav class="bg-one flex items-center justify-between h-20">
     <a href="{{ route('home') }}">
-        <img 
-            src="{{ asset('images/aspirejobsrosa.png') }}" 
-            class="h-8 mx-auto  ml-10">
+        <img src="{{ asset('images/aspirejobsrosa.png') }}" class="h-8 mx-auto  ml-10">
     </a>
-        <a href="{{ route('home') }}" class="mr-10 text-sn text-rosa">
-            Categorías
-        </a>
+
+    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex pr-20">
+        <x-jet-nav-link href="{{ url('categorias') }}">
+            {{ __('CATEGORÍAS') }}
+        </x-jet-nav-link>
+
         @auth
-        <a href="{{ url('dashboard') }}" class="mr-10 text-sn text-rosa">
-            Mi cuenta
-        </a>
+        <x-jet-nav-link href="{{ url('user/profile') }}">
+            {{ __('MI CUENTA') }}
+        </x-jet-nav-link>
         @else
-        <a href="{{ url('login') }}" class="text-sn text-rosa">
-            Iniciar sesión
-        </a>
-        <a href="{{ url('register') }}" class=" mr-10 text-sn text-rosa">
-            Registro
-        </a>
-        @endif 
+        <x-jet-nav-link href="{{ url('login') }}">
+            {{ __('INICIAR SESIÓN') }}
+        </x-jet-nav-link>
+        <x-jet-nav-link href="{{ route('register') }}">
+            {{ __('REGISTRO') }}
+        </x-jet-nav-link>
+    </div>
+    @endif
 </nav>
