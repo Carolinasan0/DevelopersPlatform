@@ -1,4 +1,4 @@
-@extends('layouts.web')
+<x-app-layout>
 
 @section('content')
 <div class="text-center">
@@ -34,3 +34,5 @@
    </div>
 </div>
 @endsection
+
+</x-app-layout>

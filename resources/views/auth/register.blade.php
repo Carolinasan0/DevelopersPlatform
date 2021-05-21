@@ -1,4 +1,4 @@
-@include('header')
+@livewire('navigation')
 
 <x-guest-layout>
     <x-jet-authentication-card>
