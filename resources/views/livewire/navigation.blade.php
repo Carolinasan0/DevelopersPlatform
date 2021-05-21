@@ -6,7 +6,7 @@
       <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
         
         <button x-on:click="open = true" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-          <span class="sr-only">Open main menu</span>
+          <span class="sr-only">Abrir menú principal</span>
           <!--
             Icon when menu is closed.
 
@@ -33,19 +33,30 @@
       <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
 
         <!-- LOGOTIPO -->
-        <a href="{{ route('home') }}" class="flex-shrink-0 flex items-center">
+        <a href="{{ route('home') }}" class="flex-shrink-0 flex items-center mr-10">
             
                 <img class="block lg:hidden h-8 w-auto" src="{{ asset('images/aspirejobsrosa.png') }}" alt="Workflow">
                 <img class="hidden lg:block h-8 w-auto" src="{{ asset('images/aspirejobsrosa.png') }}" alt="Workflow">
             </a>
 
         <!-- MENU LG -->
-        <div class="hidden sm:block sm:ml-6">
-          <div class="flex space-x-4">
-            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="{{ url('categorias') }}" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">
-                Categorías</a>
+        
+        <div class="relative inline-block text-center ml-6 hidden sm:block sm:ml-6" x-data="{ open: false }">
+          <div>
+            <button x-on:click="open = true" type="button" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" id="menu-button" aria-expanded="true" aria-haspopup="true">
+              Categorías
+            </button>
+          </div>
+
+          <div x-show="open" x-on:click.away="open = false" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-gray-100 text-rosa ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+            <div class="space-x-4 py-1" role="none">
+              <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+              <a href="{{ url('categorias') }}" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">Ver todas las categorías</a>
+              @foreach($categories as $category) 
+              <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">{{ $category->name}}</a>
+              @endforeach             
             </div>
+          </div>
         </div>
       </div>
 
@@ -66,21 +77,11 @@
                 <div class="ml-3 relative" x-data="{open: false }">
                 <div>
                     <button x-on:click="open = true" type="button" class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                    <span class="sr-only">Open user menu</span>
+                    <span class="sr-only">Abrir menú de usuario</span>
                     <img class="h-8 w-8 rounded-full" src="{{ auth()->user()->profile_photo_url }}" alt="">
                     </button>
                 </div>
 
-                <!--
-                    Dropdown menu, show/hide based on menu state.
-
-                    Entering: "transition ease-out duration-100"
-                    From: "transform opacity-0 scale-95"
-                    To: "transform opacity-100 scale-100"
-                    Leaving: "transition ease-in duration-75"
-                    From: "transform opacity-100 scale-100"
-                    To: "transform opacity-0 scale-95"
-                -->
                 <div x-show="open" x-on:click.away="open = false" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                     <!-- Active: "bg-gray-100", Not Active: "" -->
                     <a href="{{ url('user/profile') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Mi perfil</a>
@@ -116,7 +117,12 @@
     <div class="px-2 pt-2 pb-3 space-y-1">
       <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
       <a href="{{ url('categorias') }}" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">
-      Categorías</a>
+      Ver todas las categorías</a>
+
+      <!-- <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Dashboard</a> -->
+    @foreach($categories as $category)
+      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{{ $category->name }}</a>
+    @endforeach
     </div>
   </div>
 </nav>

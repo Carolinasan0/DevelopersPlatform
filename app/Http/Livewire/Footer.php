@@ -5,11 +5,11 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Category;
 
-class Navigation extends Component
+class Footer extends Component
 {
     public function render()
     {
         $categories = Category::all();
-        return view('livewire.navigation', compact('categories'));
+        return view('livewire.footer', compact('categories'));
     }
 }

@@ -12,9 +12,11 @@
                     <span class="my-2 text-rosa text-md">Atenderemos cualquier PQRS</br> al correo electrónico: aspire@jobs.com</span>
                 </div>
                 <div class="flex flex-col">
-                    <span class="font-bold text-rosa uppercase mt-4 md:mt-0 mb-2">Categorías</span>
-                    <span class="my-2"><a href="#" class="text-rosa text-md">Desarrollador Full-Stack</a></span>
-                    <span class="my-2"><a href="#" class="text-rosa text-md">link 1</a></span>
+                    <span class="font-bold text-gray-700 uppercase mt-4 md:mt-0 mb-2">Categorías</span>
+                    @foreach($categories as $category) 
+                    <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">{{ $category->name}}</a>
+                     @endforeach
+
                 </div>
             </div>
         </div>

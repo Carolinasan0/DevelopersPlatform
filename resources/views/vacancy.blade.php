@@ -5,7 +5,7 @@
    <h1 class="font-serif tracking-wide text-3xl text-one mb-2 font-bold mt-10">Detalle de la vacante</h1>
 </div>
 
-<div class="bg-white  text-left grid mx-20">
+<div class="bg-gray-100 text-left grid mx-20">
    <img src="{{ $vacancy->user->avatar }}" class="rounded-full mr-2 h-14 w-14 mb-6 mt-8">
    <div class="">
       <p class="text-azul font-serif text-2xl mb-8">{{ $vacancy->name }}</p>
