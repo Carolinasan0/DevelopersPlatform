@@ -5,7 +5,7 @@
 <div class=" flex flex-wrap flex-col md:flex-row items-center bg-one">
   <!--Left Col-->
   <div class="flex-col w-full md:w-2/5 items-center text-center">
-    <h1 class="mx-30 text-center text-5xl font-serif leading-tight text-rosa">
+    <h1 class="mx-30 text-center text-5xl font-serif leading-tight text-rosa sm:1xl ml-6">
       Juntos construimos grandes cosas
     </h1>
 
@@ -44,12 +44,12 @@
   </div>
   <!--Right Col-->
   <div class="md:w-3/5 text-center">
-    <img class="md:w-4/5" src="{{ asset('images/imgindex.png') }}">
+    <img class="md:w-4/5 mr-8" src="{{ asset('images/imgindex.png') }}">
   </div>
 </div>
 
 
-<div class="container bg-two">
+<div class="container bg-two px-14 rounded-lg shadow-lg">
   <h2 class="font-sans text-azul text-base text-center uppercase">Filtrar por</h2>
 
 
@@ -117,9 +117,9 @@
 </div>
 
 
-<div class="text-center">
+<div class="text-center sm:mx-4">
   <h1 class="font-serif tracking-wide text-3xl text-one mb-2 font-bold mt-20">Vacantes recientes</h1>
-  <h3 class="font-sans text-base text-one">Revisa los perfiles solicitados por cada empresa y ¡aplica ahora!</h3>
+  <h3 class="font-sans text-sans text-one">Revisa los perfiles solicitados por cada empresa y ¡aplica ahora!</h3>
 </div>
 
 <livewire:vacancy-list>

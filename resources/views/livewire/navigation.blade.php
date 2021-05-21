@@ -33,11 +33,11 @@
       <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
 
         <!-- LOGOTIPO -->
-        <a href="{{ route('home') }}" class="flex-shrink-0 flex items-center mr-10">
+        <a href="{{ route('home') }}" class="flex-shrink-0 flex items-center">
             
-                <img class="block lg:hidden h-8 w-auto" src="{{ asset('images/aspirejobsrosa.png') }}" alt="Workflow">
-                <img class="hidden lg:block h-8 w-auto" src="{{ asset('images/aspirejobsrosa.png') }}" alt="Workflow">
-            </a>
+          <img class="block lg:hidden h-8 w-auto" src="{{ asset('images/letrarosa.png') }}" alt="Workflow">
+          <img class="hidden lg:block h-8 w-auto" src="{{ asset('images/aspirejobsrosa.png') }}" alt="Workflow">
+        </a>
 
         <!-- MENU LG -->
         
