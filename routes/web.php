@@ -13,6 +13,8 @@ Route::get('vacante/{vacancy:id}', [VacancyController::class, 'vacancy'])->name(
 Route::get('categorias', [CategoryController::class, 'category'])->name('category');
 // Route::get('categorias/crear', [CategoryController::class, 'create'])->name('category');
 
+Route::get('category/{category}', [VacancyController::class, 'category'])->name('vacancy.category');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');

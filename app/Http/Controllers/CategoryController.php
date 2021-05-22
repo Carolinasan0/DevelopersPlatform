@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+// use App\Models\Vacancy;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -13,13 +14,20 @@ class CategoryController extends Controller
         return view('category.category');
     }
 
+    // public function show(Vacancy $vacancy)
+    // {   
+    //     $similares = Vacancy::where('category_id', $vacancy->category_id)
+    //                             ->where('status', 'Publicado')
+    //                             ->latest('id')
+    //                             // ->all()
+    //                             ->get();
+    //     return view('vacancy.show', compact('vacancy', 'similares'));
+    // }
+
     //     public function create()
     //     {
     //         return view('category.create');
     //     }
 
-    //     public function show()
-    //     {
-    //         return view('category.show');
-    //     }
+   
 }
