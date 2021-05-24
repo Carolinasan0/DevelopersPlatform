@@ -9,7 +9,15 @@ class Category extends Model
 {
     use HasFactory;
 
-    public function vacancies(){
+    protected $fillable = ['name', 'slug'];
+
+    public function getRouteKeyName()
+    {
+        return "slug";
+    }
+
+    public function vacancies()
+    {
         return $this->hasMany(Vacancy::class);
     }
 }
