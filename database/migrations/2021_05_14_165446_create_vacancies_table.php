@@ -20,6 +20,7 @@ class CreateVacanciesTable extends Migration
             $table->unsignedBigInteger('category_id');
 
             $table->string('name');
+            $table->string('slug');
             $table->string('experience');
             $table->string('salary');
             $table->string('location');
