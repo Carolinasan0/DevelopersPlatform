@@ -3,11 +3,13 @@
 @section('title', 'ASPIREJOBS')
 
 @section('content_header')
+
+<a class="btn btn-secondary btn-sm float-right" href="{{route('admin.vacancies.create')}}">Crear nueva vacante</a>
 <h1>Listado de vacantes</h1>
 @stop
 
 @section('content')
-<p>Welcome to this beautiful admin panel.</p>
+@livewire('admin.vacancies-index')
 @stop
 
 @section('css')

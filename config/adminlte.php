@@ -254,7 +254,7 @@ return [
         [
             'text'       => 'Lista de vacantes',
             'route'        => 'admin.vacancies.index',
-            'icon' => 'fas fa-fw fa-clipboard'
+            'icon' => 'fas fa-fw fa-briefcase'
         ],
         [
             'text'       => 'Crear nueva vacante',
@@ -381,5 +381,5 @@ return [
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Other-Configuration
     */
 
-    'livewire' => false,
+    'livewire' => true,
 ];
