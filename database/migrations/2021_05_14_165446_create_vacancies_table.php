@@ -25,7 +25,7 @@ class CreateVacanciesTable extends Migration
             $table->string('salary');
             $table->string('location');
             $table->string('currency');
-            $table->longtext('description');
+            $table->longtext('description')->nullable();
             $table->enum('status', ['Borrador', 'Publicar'])->default('Borrador');
             $table->string('end');
 
