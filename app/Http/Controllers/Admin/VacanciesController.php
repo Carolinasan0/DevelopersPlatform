@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Vacancy;
+use App\Models\Category;
+use App\Models\Tecnology;
+use App\Models\Skill;
+use App\Models\Country;
+
 
 class VacanciesController extends Controller
 {
@@ -25,7 +30,15 @@ class VacanciesController extends Controller
      */
     public function create()
     {
-        return view('admin.vacancies.create');
+        $categories = Category::pluck('name', 'id');
+        $countries = Country::pluck('long_description', 'id');
+        $tecnologies = Tecnology::all();
+        $skills = Skill::all();
+
+        // pluck me genera un array que solo tomará el valor name de cada objeto (categorías)
+        // return view('admin.vacancies.create', compact('categories'));
+        // return view('admin.vacancies.create', compact('categories', 'tecnologies'));
+        return view('admin.vacancies.create', compact('categories', 'countries', 'tecnologies', 'skills'));
     }
 
     /**

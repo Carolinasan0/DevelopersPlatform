@@ -16,11 +16,11 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        $role1 = Role::create(['name' -> 'Admin']);
-        $role2 = Role::create(['name' -> 'Recruiter']);
-        $role3 = Role::create(['name' -> 'Developer']);
+        // $role1 = Role::create(['name' -> 'Admin']);
+        // $role2 = Role::create(['name' -> 'Recruiter']);
+        // $role3 = Role::create(['name' -> 'Developer']);
 
-        Permission::create(['name' -> 'admin.home']);
+        // Permission::create(['name' -> 'admin.home']);
 
         // Permission::create(['name' -> 'admin.categories.index']);
         // Permission::create(['name' -> 'admin.categories.create']);

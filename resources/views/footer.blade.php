@@ -12,9 +12,11 @@
                     <span class="my-2 text-rosa text-sm">Atenderemos cualquier PQRS</br> al correo electrónico: aspire@jobs.com</span>
                 </div>
                 <div class="flex flex-col">
-                    <span class="font-serif text-rosa uppercase mt-4 md:mt-0 mb-2">Categorías</span>
-                    <span class="my-2"><a href="#" class="text-rosa text-md">Desarrollador Full-Stack</a></span>
-                    <span class="my-2"><a href="#" class="text-rosa text-md">link 1</a></span>
+                    <span class="font-serif text-rosa uppercase mt-4 md:mt-0 mb-2">Categorías destacadas</span>
+                    <!-- <span class="my-2"><a href="#" class="text-rosa text-md">Desarrollo Full-Stack</a></span>
+                    <span class="my-2"><a href="#" class="text-rosa text-md">Desarrollo Front-End</a></span>
+                    <span class="my-2"><a href="#" class="text-rosa text-md">Desarrollo Back-End</a></span>
+                    <span class="my-2"><a href="#" class="text-rosa text-md">UX/UI</a></span> -->
                 </div>
             </div>
         </div>

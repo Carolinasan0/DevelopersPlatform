@@ -33,7 +33,7 @@
          @else
          <a href="{{ url('login') }}">
             <button class="mx-auto lg:mx-0 bg-three text-white font-sans rounded-lg my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-               ¡Quiero aplicar!
+               Inicia sesión para aplicar.
             </button>
          </a>
          @endauth
