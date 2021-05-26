@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVacancyHasTecnologyTable extends Migration
+class CreateTecnologyVacancyTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateVacancyHasTecnologyTable extends Migration
      */
     public function up()
     {
-        Schema::create('vacancy_has_tecnology', function (Blueprint $table) {
+        Schema::create('tecnology_vacancy', function (Blueprint $table) {
             $table->id();
 
             $table->unsignedBigInteger('vacancy_id');

@@ -103,6 +103,11 @@ class User extends Authenticatable
         return $this->hasMany(Certifications::class);
     }
 
+    public function experience()
+    {
+        return $this->belongsTo(Experience::class);
+    }
+
     public function getAvatarAttribute()
     {
         //gravatar

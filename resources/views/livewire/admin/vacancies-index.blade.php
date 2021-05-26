@@ -12,6 +12,8 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
+                    <th>Estado</th>
+                    <!-- <th>Candidatos</th> -->
                     <th colspan="2"></th>
                 </tr>
             </thead>
@@ -21,6 +23,8 @@
                 <tr>
                     <td>{{$vacancy->id}}</td>
                     <td>{{$vacancy->name}}</td>
+                    <td>{{$vacancy->status}}</td>
+                    <!-- <td>$vacancy-></td> -->
                     <td with="10px">
                         <a class="btn btn-primary btn-sm" href="{{route('admin.vacancies.edit', $vacancy)}}">Editar</a>
                     </td>

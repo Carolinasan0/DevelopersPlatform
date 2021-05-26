@@ -19,7 +19,10 @@ class DatabaseSeeder extends Seeder
             TecnologiesSeeder::class,
             LanguajesSeeder::class,
             LangLevelSeeder::class,
-            SkillsSeeder::class
+            SkillsSeeder::class,
+            CurrenciesSeeder::class,
+            SalarySeeder::class,
+            ExperiencesSeeder::class
         ]);
     }
 }

@@ -18,21 +18,25 @@ class CreateVacanciesTable extends Migration
 
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('country_id');
+            $table->unsignedBigInteger('experience_id');
+            $table->unsignedBigInteger('currency_id');
+            $table->unsignedBigInteger('salary_id');
 
             $table->string('name');
             $table->string('slug');
-            $table->string('experience');
-            $table->string('salary');
-            $table->string('location');
-            $table->string('currency');
             $table->longtext('description')->nullable();
             $table->enum('status', ['Borrador', 'Publicar'])->default('Borrador');
-            $table->string('end');
+            $table->string('end')->nullable();
 
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
+            $table->foreign('experience_id')->references('id')->on('experiences')->onDelete('cascade');
+            $table->foreign('currency_id')->references('id')->on('currencies')->onDelete('cascade');
+            $table->foreign('salary_id')->references('id')->on('salaries')->onDelete('cascade');
         });
     }
 

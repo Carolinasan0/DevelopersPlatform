@@ -9,6 +9,11 @@ use App\Models\Category;
 use App\Models\Tecnology;
 use App\Models\Skill;
 use App\Models\Country;
+use App\Models\Currency;
+use App\Models\Salary;
+use App\Models\Experience;
+
+use App\Http\Requests\StoreVacancyRequest;
 
 
 class VacanciesController extends Controller
@@ -32,13 +37,15 @@ class VacanciesController extends Controller
     {
         $categories = Category::pluck('name', 'id');
         $countries = Country::pluck('long_description', 'id');
+        $wages = Salary::pluck('salary', 'id');
+        $currencies = Currency::pluck('currency', 'id');
+        $experiences = Experience::pluck('experience', 'id');
         $tecnologies = Tecnology::all();
         $skills = Skill::all();
 
         // pluck me genera un array que solo tomará el valor name de cada objeto (categorías)
-        // return view('admin.vacancies.create', compact('categories'));
-        // return view('admin.vacancies.create', compact('categories', 'tecnologies'));
-        return view('admin.vacancies.create', compact('categories', 'countries', 'tecnologies', 'skills'));
+        // return view('admin.vacancies.create', compact('categories', 'countries', 'currencies', 'tecnologies', 'skills',));
+        return view('admin.vacancies.create', compact('categories', 'countries',  'wages', 'currencies', 'tecnologies', 'experiences', 'skills',));
     }
 
     /**
@@ -47,9 +54,16 @@ class VacanciesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreVacancyRequest $request)
+    //aquí envio la info a la BD
     {
-        //
+        $vacancy = Vacancy::create($request->all());
+
+        if ($request->tecnologies) {
+            $vacancy->tecnologies()->attach($request->tecnologies);
+        }
+
+        return redirect()->route('admin.vacancies.edit', $vacancy);
     }
 
     /**

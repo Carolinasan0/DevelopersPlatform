@@ -9,6 +9,9 @@ class Vacancy extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id', 'created_at', 'updated_at'];
+    //con guarded pongo los campos que quiero evitar que se llenen por asignación masiva
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -19,9 +22,29 @@ class Vacancy extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+
     public function tecnologies()
     {
         return $this->belongsToMany(Tecnology::class);
+    }
+
+    public function currency()
+    {
+        return $this->belongsTo(Currency::class);
+    }
+
+    public function salary()
+    {
+        return $this->belongsTo(Salary::class);
+    }
+
+    public function experience()
+    {
+        return $this->belongsTo(Experience::class);
     }
 
     public function similar()
