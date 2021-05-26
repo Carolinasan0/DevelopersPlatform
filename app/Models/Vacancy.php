@@ -51,7 +51,7 @@ class Vacancy extends Model
     {
         return $this->where('category_id', $this->category_id)
             ->with('user')
-            ->take(2)
+            ->take(3)
             ->get();
     }
 }

@@ -8,23 +8,36 @@
    <div class="bg-gray-100 text-left grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-4 mt-8 mx-20">
       <div class="col-span-1">
          <img src="{{ $vacancy->user->avatar }}" class="rounded-full mr-2 h-14 w-14 mb-6 mt-8">
-
-         <p class="text-azul font-serif text-2xl mb-8">{{ $vacancy->name }}</p>
-         <p class="font-bold font-sans text-azul">Experiencia requerida: </p>
-         <p class="mb-6"> {{ $vacancy->experience }}</p>
-         <p class="font-bold font-sans text-azul">Rango salarial:</p>
-         <p class="mb-6">{{ $vacancy->salary }}</p>
-         <p class="font-bold font-sans text-azul">Descripción</p>
-         <p class="mb-6">{{ $vacancy->description }}</p>
-
-
-
+         <h1 class="text-azul font-serif text-2xl mb-8">{{ $vacancy->name }}</h1>
+         <div class="mb-6">
+            <p class="font-bold font-sans text-azul">Experiencia requerida: </p>
+            {{ $vacancy->experience->experience }}
+         </div>
+         <div class="mb-6">
+            <p class="font-bold font-sans text-azul">Rango salarial: </p>
+            {{ $vacancy->salary->salary }}
+         </div>
+         <div class="mb-6">
+            <p class="font-bold font-sans text-azul">Descripción de la vacante: </p>
+            {{ $vacancy->description }}
+         </div>
       </div>
+
       <div class="col-span-1 lg:mt-40 lg:ml-10">
-         <p class="font-bold font-sans text-azul">Fecha límite:</p>
-         <p class="mb-6">{{ $vacancy->end }}</p>
-         <p class="font-bold font-sans text-azul">Tecnologías requeridas:</p>
-         <p class="mb-6"> {{ $vacancy->tecnology_id }}</p>
+         <div class="mb-6">
+            <p class="font-bold font-sans text-azul">Tecnologías requeridas: </p>
+
+
+         </div>
+         <div class="mb-6">
+            <p class="font-bold font-sans text-azul">Ubicación: </p>
+            {{ $vacancy->country->long_description }}
+         </div>
+         <div class="mb-6">
+            <p class="font-bold font-sans text-azul">Fecha límite: </p>
+            {{ $vacancy->end }}
+         </div>
+
          @auth
          <!-- Role -> Desarrollador -> mostrar alerta de aplicado. -->
          <button class="mx-auto lg:mx-0 bg-three text-white font-sans rounded-lg my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
