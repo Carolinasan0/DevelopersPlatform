@@ -22,15 +22,20 @@ class RoleSeeder extends Seeder
 
         Permission::create(['name' => 'admin.home'])->syncRoles([$role1, $role2]);
 
-        Permission::create(['name' => 'admin.categories.index'])->syncRoles([$role1, $role2]);
-        Permission::create(['name' => 'admin.categories.create'])->syncRoles([$role1, $role2]);
-        Permission::create(['name' => 'admin.categories.edit'])->syncRoles([$role1, $role2]);
-        Permission::create(['name' => 'admin.categories.destroy'])->syncRoles([$role1, $role2]);
 
-        Permission::create(['name' => 'admin.tecnologies.index'])->syncRoles([$role1, $role2]);
-        Permission::create(['name' => 'admin.tecnologies.create'])->syncRoles([$role1, $role2]);
-        Permission::create(['name' => 'admin.tecnologies.edit'])->syncRoles([$role1, $role2]);
-        Permission::create(['name' => 'admin.tecnologies.destroy'])->syncRoles([$role1, $role2]);
+        Permission::create(['name' => 'admin.users.index'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.users.edit'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.users.update'])->syncRoles([$role1]);
+
+        Permission::create(['name' => 'admin.categories.index'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.categories.create'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.categories.edit'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.categories.destroy'])->syncRoles([$role1]);
+
+        Permission::create(['name' => 'admin.tecnologies.index'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.tecnologies.create'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.tecnologies.edit'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.tecnologies.destroy'])->syncRoles([$role1]);
 
         Permission::create(['name' => 'admin.vacancies.index'])->syncRoles([$role1, $role2]);
         Permission::create(['name' => 'admin.vacancies.create'])->syncRoles([$role1, $role2]);

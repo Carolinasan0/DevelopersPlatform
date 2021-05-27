@@ -20,6 +20,7 @@ class VacanciesIndex extends Component
     {
         $this->resetPage();
     }
+    //resetPage, permite que se me muestren los registros de todas las paginas, ya que sin esto, así exista un regitro, dirá que no lo hay.
 
     public function render()
     {
