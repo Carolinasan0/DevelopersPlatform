@@ -22,7 +22,7 @@
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             </div>
 
-            <div>
+            <div class="mt-4">
                 <x-jet-label for="role" value="{{ __('Registrarme como:') }}" />
                 {{-- <x-jet-label for="name" value="{{ __('Name') }}" /> --}}
                 {{-- <x-jet-input id="name" class="block mt-1 w-full text-sm text-green-600" type="text" name="role" :value="old('role')" placeholder="Selecione el rol" required autofocus autocomplete="name" /> --}}
