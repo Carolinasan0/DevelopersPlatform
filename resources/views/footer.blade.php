@@ -5,18 +5,15 @@
             <div class="mt-8 sm:mt-0 sm:w-full sm:px-8 flex flex-col md:flex-row justify-between">
                 <div class="flex flex-col">
                     <span class="font-serif text-rosa uppercase mb-2"><a href="{{ route('home') }}">ASPIREJOBS</a></span>
-                    <span class="my-2 text-rosa text-sm">Somos una empresa independiente</br> en donde ayudamos a desarrolladoras/es</br> a encontrar el trabajo que sempre han querido,</br> y a reclutadoras/es a encontrar personas con</br> todo el potencial y profesionalismo para sus proyectos.</span>
+                    <span class=" text-rosa text-sm">Somos una empresa independiente</br> en donde ayudamos a desarrolladoras/es</br> a encontrar el trabajo que sempre han querido,</br> y a reclutadoras/es a encontrar personas con</br> todo el potencial y profesionalismo para sus proyectos.</span>
                 </div>
                 <div class="flex flex-col">
-                    <span class="font-serif text-rosa uppercase mt-4 md:mt-0 mb-2">Contáctenos</span>
-                    <span class="my-2 text-rosa text-sm">Atenderemos cualquier PQRS</br> al correo electrónico: aspire@jobs.com</span>
+                    <span class="font-serif text-rosa uppercase mt-4 md:mt-0 mb-2">Si tienes algún problema, escríbenos:</span>
+                    <span class=" text-rosa text-sm">Atenderemos cualquier PQRS</br> al correo electrónico: aspire@jobs.com</span>
                 </div>
                 <div class="flex flex-col">
-                    <span class="font-serif text-rosa uppercase mt-4 md:mt-0 mb-2">Categorías destacadas</span>
-                    <!-- <span class="my-2"><a href="#" class="text-rosa text-md">Desarrollo Full-Stack</a></span>
-                    <span class="my-2"><a href="#" class="text-rosa text-md">Desarrollo Front-End</a></span>
-                    <span class="my-2"><a href="#" class="text-rosa text-md">Desarrollo Back-End</a></span>
-                    <span class="my-2"><a href="#" class="text-rosa text-md">UX/UI</a></span> -->
+                    <span class="font-serif text-rosa uppercase mt-4 md:mt-0 mb-2">Te ayudamos con tu CV </br>y en la búsqueda de talento</span>
+                    <span class=" text-rosa text-sm">Nuestro objetivo es que las personas y las empresas</br> cuenten con la mejor experiencia en sus búsquedas,</br>por eso contamos con un equipo de profesionales calificados</br> que están dispuestos a brindar cualquier apoyo que necesiten. </br>Escríbenos: apoyo@aspirejobs.com</span>
                 </div>
             </div>
         </div>

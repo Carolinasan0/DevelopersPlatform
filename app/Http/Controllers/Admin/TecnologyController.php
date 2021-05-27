@@ -45,7 +45,7 @@ class TecnologyController extends Controller
 
         $tecnology = Tecnology::create($request->all());
 
-        return redirect()->route('admin.tecnologies.edit', compact('tecnology'))->with('info', 'La tecnología se creó con éxito.');
+        return redirect()->route('admin.tecnologies.index', compact('tecnology'))->with('info', 'La tecnología se creó con éxito.');
     }
 
     /**

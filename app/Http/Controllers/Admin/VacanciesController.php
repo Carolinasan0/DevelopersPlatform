@@ -63,9 +63,9 @@ class VacanciesController extends Controller
             $vacancy->tecnologies()->attach($request->tecnologies);
         }
 
-        //el método attach me actualiza los campos de la tabla intermedia de vacante y tecno, trayendo los id de abas tablas
+        //el método attach me actualiza los campos de la tabla intermedia de vacante y tecno, trayendo los id de ambas tablas
 
-        return redirect()->route('admin.vacancies.edit', $vacancy)->with('info', 'La categoría se creó con éxito.');
+        return redirect()->route('admin.vacancies.index', $vacancy)->with('info', 'La vacante se creó con éxito.');
     }
 
     /**
@@ -76,7 +76,8 @@ class VacanciesController extends Controller
      */
     public function show(Vacancy $vacancy)
     {
-        return view('admin.vacancies.show', compact('vacancy'));
+        // return view('admin.vacancies.show', compact('vacancy'));
+        return redirect()->route('vacancy', $vacancy->id);
     }
 
     /**

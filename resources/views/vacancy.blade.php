@@ -26,12 +26,13 @@
       <div class="col-span-1 lg:mt-40 lg:ml-10">
          <div class="mb-6">
             <p class="font-bold font-sans text-azul">Tecnologías requeridas: </p>
-
-
+            @foreach($vacancy->tecnologies as $tecnology)
+            <a class="inline-block px-3 h-6 bg-gray-600 text-white rounded-full">{{$tecnology->name}}</a>
+            @endforeach
          </div>
          <div class="mb-6">
             <p class="font-bold font-sans text-azul">Ubicación: </p>
-            {{ $vacancy->country->long_description }}
+            {{ $vacancy->country->long_description}}
          </div>
          <div class="mb-6">
             <p class="font-bold font-sans text-azul">Fecha límite: </p>

@@ -25,6 +25,11 @@
                     <td>{{$vacancy->name}}</td>
                     <td>{{$vacancy->status}}</td>
                     <!-- <td>$vacancy-></td> -->
+
+                    <td width="10px">
+                        <a class="btn btn-dark btn-sm" href="{{ route('vacancy', $vacancy->id) }}">Ver</a>
+                    </td>
+
                     <td width="10px">
                         <a class="btn btn-primary btn-sm" href="{{route('admin.vacancies.edit', $vacancy)}}">Editar</a>
                     </td>
