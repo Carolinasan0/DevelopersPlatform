@@ -65,7 +65,7 @@ class VacanciesController extends Controller
 
         //el método attach me actualiza los campos de la tabla intermedia de vacante y tecno, trayendo los id de abas tablas
 
-        return redirect()->route('admin.vacancies.edit', $vacancy);
+        return redirect()->route('admin.vacancies.edit', $vacancy)->with('info', 'La categoría se creó con éxito.');
     }
 
     /**
@@ -88,6 +88,8 @@ class VacanciesController extends Controller
     public function edit(Vacancy $vacancy)
     {
 
+        $this->authorize('author', $vacancy);
+
         $categories = Category::pluck('name', 'id');
         $countries = Country::pluck('long_description', 'id');
         $wages = Salary::pluck('salary', 'id');
@@ -108,6 +110,8 @@ class VacanciesController extends Controller
      */
     public function update(VacancyRequest $request, Vacancy $vacancy)
     {
+        $this->authorize('author', $vacancy);
+
         $vacancy->update($request->all());
 
         if ($request->tecnologies) {
@@ -125,6 +129,8 @@ class VacanciesController extends Controller
      */
     public function destroy(Vacancy $vacancy)
     {
+        $this->authorize('author', $vacancy);
+
         $vacancy->delete();
 
         return redirect()->route('admin.vacancies.index', $vacancy)->with('info', 'La vacante se eliminó exitosamente.');

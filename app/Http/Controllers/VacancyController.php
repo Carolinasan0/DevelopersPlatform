@@ -12,6 +12,8 @@ class VacancyController extends Controller
 {
     public function vacancy(Vacancy $vacancy)
     {
+        $this->authorize('published', $vacancy);
+
         return view('vacancy', compact('vacancy'));
     }
 
@@ -21,6 +23,7 @@ class VacancyController extends Controller
             ->where('status', 'Publicar')
             ->latest('id')
             ->paginate(6);
+
         return view('vacancies.category', compact('vacancy', 'category'));
     }
 
