@@ -21,11 +21,8 @@ class TecnologiesSeeder extends Seeder
         ]);
 
         DB::table('tecnologies')->insert([
-            'name' => 'C#'
-        ]);
-
-        DB::table('tecnologies')->insert([
-            'name' => 'C++'
+            'name' => 'C++',
+            'slug' => 'c--'
         ]);
 
         DB::table('tecnologies')->insert([

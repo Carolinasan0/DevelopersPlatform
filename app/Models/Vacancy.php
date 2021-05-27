@@ -51,6 +51,9 @@ class Vacancy extends Model
     {
         return $this->where('category_id', $this->category_id)
             ->with('user')
+            ->where('status', "Publicar")
+            // ->where('id', '!=', $vacancy->id)
+            ->latest('id')
             ->take(3)
             ->get();
     }

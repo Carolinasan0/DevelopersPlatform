@@ -24,6 +24,18 @@ class VacancyController extends Controller
         return view('vacancies.category', compact('vacancy', 'category'));
     }
 
+    // public function show(Vacancy $vacancy)
+    // {
+    //     $similares = Vacancy::where('category_id', $vacancy->category_id)
+    //         ->where('status', "Publicar")
+    //         ->where('id', '!=', $vacancy->id)
+    //         ->latest('id')
+    //         ->take(3)
+    //         ->get();
+
+    //     return view('vacancy', compact('vacancy', 'similares'));
+    // }
+
     // public function create()
     // {
     //     return "Aquí se pude crear una vacante";

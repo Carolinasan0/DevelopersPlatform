@@ -25,10 +25,10 @@
                     <td>{{$vacancy->name}}</td>
                     <td>{{$vacancy->status}}</td>
                     <!-- <td>$vacancy-></td> -->
-                    <td with="10px">
+                    <td width="10px">
                         <a class="btn btn-primary btn-sm" href="{{route('admin.vacancies.edit', $vacancy)}}">Editar</a>
                     </td>
-                    <td with="10px">
+                    <td width="10px">
                         <form action="{{route('admin.vacancies.destroy', $vacancy)}}" method="POST"></form>
                         @csrf
                         @method('delete')

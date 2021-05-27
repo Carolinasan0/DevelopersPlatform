@@ -5,7 +5,7 @@
       <h1 class="font-serif tracking-wide text-3xl text-one mb-2 font-bold mt-10">Detalle de la vacante</h1>
    </div>
 
-   <div class="bg-gray-100 text-left grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-4 mt-8 mx-20">
+   <div class="bg-gray-100 text-left grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-4 mt-8 mx-20 pb-10">
       <div class="col-span-1">
          <img src="{{ $vacancy->user->avatar }}" class="rounded-full mr-2 h-14 w-14 mb-6 mt-8">
          <h1 class="text-azul font-serif text-2xl mb-8">{{ $vacancy->name }}</h1>
@@ -53,11 +53,11 @@
       </div>
    </div>
 
-   <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 mt-8 mx-8 py-8">
+   <!-- <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 mt-8 mx-8 py-8">
       @foreach($vacancy->similar() as $vacancy)
       <x-vacancy-card :vacancy="$vacancy" />
       @endforeach
-   </div>
+   </div> -->
    @endsection
 
 </x-app-layout>

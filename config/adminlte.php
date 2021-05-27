@@ -85,7 +85,7 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
+    'layout_fixed_sidebar' => true,
     'layout_fixed_navbar' => null,
     'layout_fixed_footer' => null,
 
@@ -248,7 +248,12 @@ return [
             'active' => ['admin/categories*']
         ],
 
-
+        [
+            'text' => 'Tecnologías',
+            'route'  => 'admin.tecnologies.index',
+            'icon' => 'fas fa-fw fa-toolbox',
+            'active' => ['admin/tecnologies*']
+        ],
 
         ['header' => 'OPCIONES'],
         [

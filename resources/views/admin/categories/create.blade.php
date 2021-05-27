@@ -16,7 +16,7 @@
             {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingresa el nombre de la categoría']) !!}
 
             @error('name')
-            <span class="text-danger">{{$message}}</span>
+            <small class="text-danger">{{$message}}</small>
             @enderror
         </div>
 
@@ -25,7 +25,7 @@
             {!! Form::text('slug', null, ['class' => 'form-control disabled', 'placeholder' => 'Este es el slug de la categoría', 'readonly']) !!}
 
             @error('slug')
-            <span class="text-danger">{{$message}}</span>
+            <small class="text-danger">{{$message}}</small>
             @enderror
 
         </div>
