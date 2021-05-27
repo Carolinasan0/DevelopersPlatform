@@ -13,7 +13,7 @@ use App\Models\Currency;
 use App\Models\Salary;
 use App\Models\Experience;
 
-use App\Http\Requests\StoreVacancyRequest;
+use App\Http\Requests\VacancyRequest;
 
 
 class VacanciesController extends Controller
@@ -41,11 +41,11 @@ class VacanciesController extends Controller
         $currencies = Currency::pluck('currency', 'id');
         $experiences = Experience::pluck('experience', 'id');
         $tecnologies = Tecnology::all();
-        $skills = Skill::all();
+        // $skills = Skill::all();
 
         // pluck me genera un array que solo tomará el valor name de cada objeto (categorías)
         // return view('admin.vacancies.create', compact('categories', 'countries', 'currencies', 'tecnologies', 'skills',));
-        return view('admin.vacancies.create', compact('categories', 'countries',  'wages', 'currencies', 'tecnologies', 'experiences', 'skills',));
+        return view('admin.vacancies.create', compact('categories', 'countries',  'wages', 'currencies', 'tecnologies', 'experiences'));
     }
 
     /**
@@ -54,7 +54,7 @@ class VacanciesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreVacancyRequest $request)
+    public function store(VacancyRequest $request)
     //aquí envio la info a la BD
     {
         $vacancy = Vacancy::create($request->all());
@@ -62,6 +62,8 @@ class VacanciesController extends Controller
         if ($request->tecnologies) {
             $vacancy->tecnologies()->attach($request->tecnologies);
         }
+
+        //el método attach me actualiza los campos de la tabla intermedia de vacante y tecno, trayendo los id de abas tablas
 
         return redirect()->route('admin.vacancies.edit', $vacancy);
     }
@@ -85,7 +87,16 @@ class VacanciesController extends Controller
      */
     public function edit(Vacancy $vacancy)
     {
-        return view('admin.vacancies.edit', compact('vacancy'));
+
+        $categories = Category::pluck('name', 'id');
+        $countries = Country::pluck('long_description', 'id');
+        $wages = Salary::pluck('salary', 'id');
+        $currencies = Currency::pluck('currency', 'id');
+        $experiences = Experience::pluck('experience', 'id');
+        $tecnologies = Tecnology::all();
+        // $skills = Skill::all();
+
+        return view('admin.vacancies.edit', compact('vacancy', 'categories', 'countries', 'wages', 'currencies', 'tecnologies', 'experiences'));
     }
 
     /**
@@ -95,9 +106,15 @@ class VacanciesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vacancy $vacancy)
+    public function update(VacancyRequest $request, Vacancy $vacancy)
     {
-        //
+        $vacancy->update($request->all());
+
+        if ($request->tecnologies) {
+            $vacancy->tecnologies()->sync($request->tecnologies);
+        }
+        // el método sync en cambio de attach, este sincroniza la coleccion qe le mandamos con los rrefistros que existan actulamente
+        return redirect()->route('admin.vacancies.edit', $vacancy)->with('info', 'La vacante se actualizó con éxito.');
     }
 
     /**
@@ -108,6 +125,8 @@ class VacanciesController extends Controller
      */
     public function destroy(Vacancy $vacancy)
     {
-        //
+        $vacancy->delete();
+
+        return redirect()->route('admin.vacancies.index', $vacancy)->with('info', 'La vacante se eliminó exitosamente.');
     }
 }

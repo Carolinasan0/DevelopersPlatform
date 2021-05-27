@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreVacancyRequest extends FormRequest
+class VacancyRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,11 +13,7 @@ class StoreVacancyRequest extends FormRequest
      */
     public function authorize()
     {
-        if ($this->user_id == auth()->user()->id) {
-            return true;
-        } else {
-            return false;
-        }
+        return true;
     }
 
     /**
@@ -27,6 +23,9 @@ class StoreVacancyRequest extends FormRequest
      */
     public function rules()
     {
+
+        $vacancy = $this->route()->parameter('vacancy');
+
         $rules = [
             'name' => 'required',
             'country_id' => 'required',
@@ -35,6 +34,10 @@ class StoreVacancyRequest extends FormRequest
         ];
 
         // Si el usuario guarda como borrador, solo le obligará a llenar ciertos campos.
+
+        if ($vacancy) {
+            $rules['slug'] = 'required|unique:vacancies,slug,' . $vacancy->id;
+        }
 
         if ($this->status == 'Publicar') {
             $rules = array_merge($rules, [
