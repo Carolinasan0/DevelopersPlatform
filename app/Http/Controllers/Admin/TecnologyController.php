@@ -8,11 +8,15 @@ use App\Models\Tecnology;
 
 class TecnologyController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public function __construct()
+    {
+        $this->middleware('can:admin.tecnologies.index')->only('index');
+        $this->middleware('can:admin.tecnologies.create')->only('create', 'store');
+        $this->middleware('can:admin.tecnologies.edit')->only('edit', 'update');
+        $this->middleware('can:admin.tecnologies.destroy')->only('destroy');
+    }
+
     public function index()
     {
         $tecnologies = Tecnology::all();
@@ -20,22 +24,11 @@ class TecnologyController extends Controller
         return view('admin.tecnologies.index', compact('tecnologies'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('admin.tecnologies.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -48,35 +41,11 @@ class TecnologyController extends Controller
         return redirect()->route('admin.tecnologies.index', compact('tecnology'))->with('info', 'La tecnología se creó con éxito.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Tecnology $tecnology)
-    {
-        return view('admin.tecnologies.show', compact('tecnology'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Tecnology $tecnology)
     {
         return view('admin.tecnologies.edit', compact('tecnology'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Tecnology $tecnology)
     {
         $request->validate([
@@ -89,12 +58,6 @@ class TecnologyController extends Controller
         return redirect()->route('admin.tecnologies.edit', $tecnology)->with('info', 'La tecnología se actualizó con éxito.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Tecnology $tecnology)
     {
         $tecnology->delete();

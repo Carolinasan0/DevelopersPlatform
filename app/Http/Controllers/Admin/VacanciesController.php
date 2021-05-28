@@ -18,21 +18,20 @@ use App\Http\Requests\VacancyRequest;
 
 class VacanciesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public function __construct()
+    {
+        $this->middleware('can:admin.vacancies.index')->only('index');
+        $this->middleware('can:admin.vacancies.create')->only('create', 'store');
+        $this->middleware('can:admin.vacancies.edit')->only('edit', 'update');
+        $this->middleware('can:admin.vacancies.destroy')->only('destroy');
+    }
+
     public function index()
     {
         return view('admin.vacancies.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $categories = Category::pluck('name', 'id');
@@ -48,12 +47,6 @@ class VacanciesController extends Controller
         return view('admin.vacancies.create', compact('categories', 'countries',  'wages', 'currencies', 'tecnologies', 'experiences'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(VacancyRequest $request)
     //aquí envio la info a la BD
     {
@@ -68,24 +61,12 @@ class VacanciesController extends Controller
         return redirect()->route('admin.vacancies.index', $vacancy)->with('info', 'La vacante se creó con éxito.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show(Vacancy $vacancy)
     {
         // return view('admin.vacancies.show', compact('vacancy'));
         return redirect()->route('vacancy', $vacancy->id);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Vacancy $vacancy)
     {
 
@@ -102,13 +83,6 @@ class VacanciesController extends Controller
         return view('admin.vacancies.edit', compact('vacancy', 'categories', 'countries', 'wages', 'currencies', 'tecnologies', 'experiences'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(VacancyRequest $request, Vacancy $vacancy)
     {
         $this->authorize('author', $vacancy);
@@ -122,12 +96,6 @@ class VacanciesController extends Controller
         return redirect()->route('admin.vacancies.edit', $vacancy)->with('info', 'La vacante se actualizó con éxito.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Vacancy $vacancy)
     {
         $this->authorize('author', $vacancy);

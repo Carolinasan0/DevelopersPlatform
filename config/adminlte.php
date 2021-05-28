@@ -238,37 +238,43 @@ return [
             'text'        => 'Dashboard',
             'route'         => 'admin.home',
             'icon'        => 'fas fa-tachometer-alt fa-fw',
+            'can'         => 'admin.home',
         ],
         [
             'text'        => 'Usuarios',
             'route'         => 'admin.users.index',
             'icon'        => 'fas fa-users fa-fw',
+            'can'         => 'admin.users.index',
         ],
-        ['header' => 'ADMINISTRADOR'],
+
         [
             'text' => 'Categorías',
             'route'  => 'admin.categories.index',
             'icon' => 'fab fa-fw fa-buffer',
-            'active' => ['admin/categories*']
+            'active' => ['admin/categories*'],
+            'can'    => 'admin.categories.index',
         ],
 
         [
             'text' => 'Tecnologías',
             'route'  => 'admin.tecnologies.index',
             'icon' => 'fas fa-fw fa-toolbox',
-            'active' => ['admin/tecnologies*']
+            'active' => ['admin/tecnologies*'],
+            'can'    => 'admin.tecnolgoies.index',
         ],
 
         ['header' => 'OPCIONES'],
         [
             'text'       => 'Lista de vacantes',
             'route'        => 'admin.vacancies.index',
-            'icon' => 'fas fa-fw fa-briefcase'
+            'icon' => 'fas fa-fw fa-briefcase',
+            'can'    => 'admin.vacancies.index',
         ],
         [
             'text'       => 'Crear nueva vacante',
             'route'        => 'admin.vacancies.create',
-            'icon' => 'fas fa-fw fa-file'
+            'icon' => 'fas fa-fw fa-file',
+            'can'    => 'admin.vacancies.create',
         ],
     ],
 
