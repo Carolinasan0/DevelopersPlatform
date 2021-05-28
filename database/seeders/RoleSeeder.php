@@ -20,26 +20,79 @@ class RoleSeeder extends Seeder
         $role2 = Role::create(['name' => 'Recruiter']);
         $role3 = Role::create(['name' => 'Developer']);
 
-        Permission::create(['name' => 'admin.home'])->syncRoles([$role1, $role2]);
+        Permission::create([
+            'name' => 'admin.home',
+            'description' => 'Ver el dashboard'
+        ])->syncRoles([$role1, $role2]);
 
+        Permission::create([
+            'name' => 'admin.users.index',
+            'description' => 'Ver listado de usuarios'
+        ])->syncRoles([$role1]);
 
-        Permission::create(['name' => 'admin.users.index'])->syncRoles([$role1]);
-        Permission::create(['name' => 'admin.users.edit'])->syncRoles([$role1]);
-        Permission::create(['name' => 'admin.users.update'])->syncRoles([$role1]);
+        Permission::create([
+            'name' => 'admin.users.edit',
+            'description' => 'Asignar un rol'
+        ])->syncRoles([$role1]);
 
-        Permission::create(['name' => 'admin.categories.index'])->syncRoles([$role1, $role2]);
-        Permission::create(['name' => 'admin.categories.create'])->syncRoles([$role1]);
-        Permission::create(['name' => 'admin.categories.edit'])->syncRoles([$role1]);
-        Permission::create(['name' => 'admin.categories.destroy'])->syncRoles([$role1]);
+        Permission::create([
+            'name' => 'admin.categories.index',
+            'description' => 'Ver listado de categorías'
+        ])->syncRoles([$role1, $role2]);
 
-        Permission::create(['name' => 'admin.tecnologies.index'])->syncRoles([$role1, $role2]);
-        Permission::create(['name' => 'admin.tecnologies.create'])->syncRoles([$role1]);
-        Permission::create(['name' => 'admin.tecnologies.edit'])->syncRoles([$role1]);
-        Permission::create(['name' => 'admin.tecnologies.destroy'])->syncRoles([$role1]);
+        Permission::create([
+            'name' => 'admin.categories.create',
+            'description' => 'Crear categorías'
+        ])->syncRoles([$role1]);
 
-        Permission::create(['name' => 'admin.vacancies.index'])->syncRoles([$role1, $role2]);
-        Permission::create(['name' => 'admin.vacancies.create'])->syncRoles([$role1, $role2]);
-        Permission::create(['name' => 'admin.vacancies.edit'])->syncRoles([$role1, $role2]);
-        Permission::create(['name' => 'admin.vacancies.destroy'])->syncRoles([$role1, $role2]);
+        Permission::create([
+            'name' => 'admin.categories.edit',
+            'description' => 'Editar categorías'
+        ])->syncRoles([$role1]);
+
+        Permission::create([
+            'name' => 'admin.categories.destroy',
+            'description' => 'Eliminar categorías'
+        ])->syncRoles([$role1]);
+
+        Permission::create([
+            'name' => 'admin.tecnologies.index',
+            'description' => 'Ver listado de tecnologías'
+        ])->syncRoles([$role1, $role2]);
+
+        Permission::create([
+            'name' => 'admin.tecnologies.create',
+            'description' => 'Crear tecnologías'
+        ])->syncRoles([$role1]);
+
+        Permission::create([
+            'name' => 'admin.tecnologies.edit',
+            'description' => 'Editar tecnologías'
+        ])->syncRoles([$role1]);
+
+        Permission::create([
+            'name' => 'admin.tecnologies.destroy',
+            'description' => 'Eliminar tecnologías'
+        ])->syncRoles([$role1]);
+
+        Permission::create([
+            'name' => 'admin.vacancies.index',
+            'description' => 'Ver listado de vacantes'
+        ])->syncRoles([$role1, $role2]);
+
+        Permission::create([
+            'name' => 'admin.vacancies.create',
+            'description' => 'Crear vacantes'
+        ])->syncRoles([$role1, $role2]);
+
+        Permission::create([
+            'name' => 'admin.vacancies.edit',
+            'description' => 'Editar vacantes'
+        ])->syncRoles([$role1, $role2]);
+
+        Permission::create([
+            'name' => 'admin.vacancies.destroy',
+            'description' => 'Eliminar vacantes'
+        ])->syncRoles([$role1, $role2]);
     }
 }
