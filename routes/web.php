@@ -1,9 +1,11 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\VacancyController;
 use App\Http\Controllers\CategoryController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 Route::get('/', [PageController::class, 'home'])->name('home');
 
@@ -15,6 +17,25 @@ Route::get('categorias', [CategoryController::class, 'category'])->name('categor
 
 Route::get('category/{category}', [VacancyController::class, 'category'])->name('vacancy.category');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+
+//RUTAS VERIFICACIÓN CORREO
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+
+    return redirect('/');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+
+    return back()->with('message', '¡Link de verficación enviado!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+//FIN RUTAS VERIFICACIÓN CORREO
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
+    return view('index');
+})->name('home');

@@ -13,6 +13,8 @@ class PageController extends Controller
         return view('index');
     }
 
+
+
     // public function render(Category $category)
     // {
     //     $categories = Category::all();

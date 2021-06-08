@@ -225,7 +225,7 @@ return [
 
     'menu' => [
         [
-            'text' => 'search',
+            'text' => 'Buscar',
             'search' => true,
             'topnav' => true,
         ],
@@ -266,7 +266,7 @@ return [
             'route'  => 'admin.tecnologies.index',
             'icon' => 'fas fa-fw fa-toolbox',
             'active' => ['admin/tecnologies*'],
-            'can'    => 'admin.tecnolgoies.index',
+            'can'    => 'admin.tecnologies.index',
         ],
 
         ['header' => 'OPCIONES'],
