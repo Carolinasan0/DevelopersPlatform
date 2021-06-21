@@ -62,7 +62,7 @@
 
 <!-- PAÍS -->
 <div class="form-group">
-    {!! Form::label('country_id', 'País') !!}
+    {!! Form::label('country_id', 'Departamento') !!}
     {!! Form::select('country_id', $countries, null, ['class' => 'form-control']) !!}
 
     @error('country_id')

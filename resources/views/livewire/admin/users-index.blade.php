@@ -17,6 +17,7 @@
                         <th>ID</th>
                         <th>Nombre completo</th>
                         <th>Email</th>
+                        <!-- <th>Role</th> -->
                         <th></th>
                     </tr>
                 </thead>
@@ -26,6 +27,7 @@
                         <td>{{$user->id}}</td>
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
+                        <!-- <td>{{$user->roles}}</td> -->
                         <td width="10px">
                             <a class="btn btn-primary btn-sm" href="{{ route('admin.users.edit', $user) }}">Editar</a>
                         </td>

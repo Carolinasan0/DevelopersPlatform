@@ -39,18 +39,24 @@
             {{ $vacancy->end }}
          </div>
 
-         @auth
+         @if (Auth::user()->hasRole('Desarrollador'))
          <!-- Role -> Desarrollador -> mostrar alerta de aplicado. -->
          <button class="mx-auto lg:mx-0 bg-three text-white font-sans rounded-lg my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
             ¡Quiero aplicar!
          </button>
-         @else
+         @elseif (Auth::user()->hasRole('Desarrollador'))
          <a href="{{ url('login') }}">
             <button class="mx-auto lg:mx-0 bg-three text-white font-sans rounded-lg my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
                Inicia sesión para aplicar.
             </button>
          </a>
-         @endauth
+         @elseif (Auth::user()->hasRole('Reclutador'))
+         <a href="{{ url('login') }}">
+            <button class="mx-auto lg:mx-0 bg-three text-white font-sans rounded-lg my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+               Ver candidatos.
+            </button>
+         </a>
+         @endif
       </div>
    </div>
 

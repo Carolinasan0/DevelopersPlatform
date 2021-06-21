@@ -41,7 +41,7 @@
 
         <!-- MENU LG -->
 
-        <div class="relative inline-block text-center ml-6 hidden sm:block sm:ml-6" x-data="{ open: false }">
+        <div class="relative hidden text-center ml-6 sm:block sm:ml-6" x-data="{ open: false }">
           <div>
             <button x-on:click="open = true" type="button" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" id="menu-button" aria-expanded="true" aria-haspopup="true">
               Categorías
@@ -57,6 +57,10 @@
               @endforeach
             </div>
           </div>
+        </div>
+
+        <div class="card-body px-6 align-center my-2">
+          <input wire:model="search" class="form-control ml-8" placeholder="Buscar">
         </div>
       </div>
 
@@ -118,6 +122,7 @@
   <!-- MENU MOBILE -->
   <div class="sm:hidden" x-show="open" x-on:click.away="open = false" id="mobile-menu">
     <div class="px-2 pt-2 pb-3 space-y-1">
+
       <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
       <a href="{{ url('categorias') }}" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">
         Ver todas las categorías</a>
@@ -127,5 +132,6 @@
       <a href="{{ route('vacancy.category', $category) }}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{{ $category->name }}</a>
       @endforeach
     </div>
+
   </div>
 </nav>

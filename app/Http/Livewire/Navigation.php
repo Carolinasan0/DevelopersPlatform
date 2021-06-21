@@ -7,6 +7,8 @@ use App\Models\Category;
 
 class Navigation extends Component
 {
+    public $search;
+
     public function render()
     {
         $categories = Category::all();

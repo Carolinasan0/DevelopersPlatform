@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\VacancyController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 Route::get('/', [PageController::class, 'home'])->name('home');
@@ -32,7 +33,7 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 Route::post('/email/verification-notification', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
 
-    return back()->with('message', '¡Link de verficación enviado!');
+    return back()->with('message', '¡Link de verificación enviado!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 //FIN RUTAS VERIFICACIÓN CORREO
 

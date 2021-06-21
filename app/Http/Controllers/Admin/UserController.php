@@ -28,9 +28,10 @@ class UserController extends Controller
         return view('admin.users.edit', compact('user', 'roles'));
     }
 
-    public function update(Request $request, $user)
+    public function update(Request $request, User $user)
     {
         $user->roles()->sync($request->roles);
+        //El método sync es el que se encarga de crear los registros en la tabla intermedia de Users y roles
 
         return redirect()->route('admin.users.index', $user)->with('info', 'Actualizado correctamente.');
     }

@@ -2,17 +2,30 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\Vacancy;
 
 use Illuminate\Http\Request;
 
 class PageController extends Controller
+
 {
+    public $search;
+
     public function home()
     {
         return view('index');
     }
 
+    public function render()
+    {
+        $vacancies = Vacancy::where('user_id', auth()->user()->id)
+            ->where('name', 'LIKE', '%' . $this->search . '%')
+            ->orWhere('description', 'LIKE', '%' . $this->search . '%')
+            ->latest('id')
+            ->paginate();
+
+        return view('livewire.vacancy-list', compact('vacancies'));
+    }
 
 
     // public function render(Category $category)
