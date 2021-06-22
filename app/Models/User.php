@@ -107,6 +107,16 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsTo(Experience::class);
     }
 
+    public function developer()
+    {
+        return $this->hasOne(Developer::class);
+    }
+
+    public function recluiter()
+    {
+        return $this->hasOne(Recluiter::class);
+    }
+
     public function getAvatarAttribute()
     {
         //gravatar
