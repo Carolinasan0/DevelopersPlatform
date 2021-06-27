@@ -282,6 +282,13 @@ return [
             'icon' => 'fas fa-fw fa-file',
             'can'    => 'admin.vacancies.create',
         ],
+        [
+            'text'        => 'Lista de candidatos',
+            'route'         => 'admin.candidates.index',
+            'icon'        => 'fas fa-users fa-fw',
+            // 'can'         => 'admin.candidates.index',
+        ],
+
     ],
 
     /*

@@ -52,6 +52,11 @@ class Vacancy extends Model
         return $this->belongsToMany(Candidate::class);
     }
 
+    public function recluiter()
+    {
+        return $this->belongsTo(Recluiter::class);
+    }
+
     public function similar()
     {
         return $this->where('category_id', $this->category_id)

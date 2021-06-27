@@ -15,6 +15,9 @@ class CreateDevelopersTable extends Migration
     {
         Schema::create('developers', function (Blueprint $table) {
             $table->id();
+
+            $table->bigInteger('user_id')->unsigned();
+
             $table->string('experience');
             $table->string('education')->unique();
             $table->string('skills');
@@ -25,7 +28,10 @@ class CreateDevelopersTable extends Migration
             $table->string('certifications');
             $table->string('languajes');
             $table->string('curriculum');
+
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on("users")->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

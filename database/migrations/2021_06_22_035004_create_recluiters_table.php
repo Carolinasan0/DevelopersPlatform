@@ -16,6 +16,7 @@ class CreateRecluitersTable extends Migration
         Schema::create('recluiters', function (Blueprint $table) {
             $table->id();
 
+            $table->bigInteger('user_id')->unsigned();
             $table->unsignedBigInteger('vacancy_id');
 
             $table->string('company');
@@ -24,7 +25,8 @@ class CreateRecluitersTable extends Migration
 
             $table->timestamps();
 
-            $table->foreign('vacancy_id')->references('id')->on('vacancies')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on("users")->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('vacancy_id')->references('id')->on('vacancies')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

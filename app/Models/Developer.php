@@ -14,7 +14,6 @@ class Developer extends Model
         return $this->belongsTo(User::class);
     }
 
-
     public function candidate()
     {
         return $this->hasOne(Candidate::class);

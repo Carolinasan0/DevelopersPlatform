@@ -24,17 +24,12 @@
 
             <div class="mt-4">
                 <x-jet-label for="role_id" value="{{ __('Registrarme como:') }}" />
-                <select name="role_id" x-model="role_id" name="role_id" :value="old('role_id')" required class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+                <select name="role_id" x-model="role_id" required class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
                     <option value="" disabled selected hidden>Seleccionar</option>
-                    <option value="2">Reclutador</option>
-                    <option value="3">Desarrollador/a</option>
+                    <option value="Reclutador">Reclutador</option>
+                    <option value="Desarrollador">Desarrollador/a</option>
                 </select>
             </div>
-
-            <!-- <div class="mt-4">
-                <x-jet-label for="role" value="{{ __('Registrarme como') }}" />
-                <x-jet-input id="role" class="block mt-1 w-full" type="select" name="role" :value="old('role')" required />
-            </div> -->
 
             <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Contraseña') }}" />
