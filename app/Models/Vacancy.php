@@ -47,6 +47,11 @@ class Vacancy extends Model
         return $this->belongsTo(Experience::class);
     }
 
+    public function candidates()
+    {
+        return $this->belongsToMany(Candidate::class);
+    }
+
     public function similar()
     {
         return $this->where('category_id', $this->category_id)

@@ -5,18 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Developer extends Model
+class Candidate extends Model
 {
     use HasFactory;
+
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-
-    public function candidate()
+    public function vacancies()
     {
-        return $this->hasOne(Candidate::class);
+        return $this->belongsToMany(Vacancy::class);
     }
 }

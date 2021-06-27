@@ -117,6 +117,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(Recluiter::class);
     }
 
+
     public function getAvatarAttribute()
     {
         //gravatar
