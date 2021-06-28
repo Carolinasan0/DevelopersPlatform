@@ -41,9 +41,11 @@
 
          @if (Auth::user()->hasRole('Desarrollador'))
          <!-- Role -> Desarrollador -> mostrar alerta de aplicado. -->
-         <button class="mx-auto lg:mx-0 bg-three text-white font-sans rounded-lg my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-            ¡Quiero aplicar!
-         </button>
+         <a href="#">
+            <button class="mx-auto lg:mx-0 bg-three text-white font-sans rounded-lg my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+               ¡Quiero aplicar!
+            </button>
+         </a>
          @elseif (Auth::user()->hasRole('Desarrollador'))
          <a href="{{ url('login') }}">
             <button class="mx-auto lg:mx-0 bg-three text-white font-sans rounded-lg my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
@@ -59,12 +61,6 @@
          @endif
       </div>
    </div>
-
-   <!-- <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 mt-8 mx-8 py-8">
-      @foreach($vacancy->similar() as $vacancy)
-      <x-vacancy-card :vacancy="$vacancy" />
-      @endforeach
-   </div> -->
    @endsection
 
 </x-app-layout>

@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-
+@livewire('admin.candidates-index')
 @stop
 
 @section('css')

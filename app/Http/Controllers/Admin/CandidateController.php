@@ -3,14 +3,21 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Candidate;
 use Illuminate\Http\Request;
+
+use Livewire\WithPagination;
 
 class CandidateController extends Controller
 {
 
+    use WithPagination;
+
     public function index()
     {
-        return view('admin.candidates.index');
+
+        $candidate = Candidate::paginate();
+        return view('admin.candidates.index', compact('candidate'));
     }
 
 
