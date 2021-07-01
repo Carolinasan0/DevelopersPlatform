@@ -8,7 +8,7 @@
       <h1 class="mx-30 text-center text-5xl font-serif leading-tight text-rosa sm:1xl ml-6">
         Juntos construimos grandes cosas
       </h1>
-      @can('admin.vacancies.create')
+
       @auth
       <!-- <a href="{{ url('categorias') }}"> -->
       <a href="{{ route('admin.vacancies.create') }}">
@@ -24,7 +24,7 @@
         </button>
       </a>
       @endauth
-      @endcan
+
 
 
       @auth

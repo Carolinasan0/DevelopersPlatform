@@ -46,12 +46,12 @@
                ¡Quiero aplicar!
             </button>
          </a>
-         @elseif (Auth::user()->hasRole('Desarrollador'))
+         <!-- @elseif (Auth::user()->hasRole('Desarrollador'))
          <a href="{{ url('login') }}">
             <button class="mx-auto lg:mx-0 bg-three text-white font-sans rounded-lg my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
                Inicia sesión para aplicar.
             </button>
-         </a>
+         </a> -->
          @elseif (Auth::user()->hasAnyRole('Reclutador', 'Admin'));
          <a href="{{ route('admin.candidates.index') }}">
             <button class="mx-auto lg:mx-0 bg-three text-white font-sans rounded-lg my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">

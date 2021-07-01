@@ -34,6 +34,11 @@ Route::post('/email/verification-notification', function (Request $request) {
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 //FIN RUTAS VERIFICACIÓN CORREO
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
-    return view('index');
-})->name('home');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
+//     return view('index');
+// })->name('home');
+
+Route::middleware(['auth:sanctum', 'verified'])->get(
+    '/dashboard',
+    [PageController::class, 'dashboard']
+)->name('dashboard');
