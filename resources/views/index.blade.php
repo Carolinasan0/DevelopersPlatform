@@ -49,9 +49,8 @@
     </div>
   </div>
 
-  <div class="container bg-two px-14 rounded-lg shadow-lg">
-    <h2 class="font-sans text-azul text-base text-center uppercase">Filtrar por</h2>
-
+  <div class=" bg-two px-14 rounded-lg shadow-lg text-center grid lg:grid-cols-6 md:grid-cols-3 grid-cols-1 gap-8 mx-6 py-8">
+    <h2 class="font-sans text-azul text-base">Filtrar por</h2>
 
     <div class="sidebar-widget">
 
@@ -62,11 +61,10 @@
           <option value="2">Desarrollador Front-End</option>
           <option value="3">Desarrollador Back-End</option>
           <option value="4">Diseño UX/UI</option>
+
         </select>
       </form>
-
     </div>
-
 
     <div class="sidebar-widget">
 
@@ -80,6 +78,7 @@
           <option value="5">Más de $4'000.000</option>
         </select>
       </form>
+
     </div>
 
 

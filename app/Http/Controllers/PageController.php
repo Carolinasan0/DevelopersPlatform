@@ -28,6 +28,8 @@ class PageController extends Controller
     }
 
 
+
+
     // public function render(Category $category)
     // {
     //     $categories = Category::all();

@@ -224,11 +224,11 @@ return [
     */
 
     'menu' => [
-        [
-            'text' => 'Buscar',
-            'search' => true,
-            'topnav' => true,
-        ],
+        // [
+        //     'text' => 'Buscar',
+        //     'search' => true,
+        //     'topnav' => true,
+        // ],
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
